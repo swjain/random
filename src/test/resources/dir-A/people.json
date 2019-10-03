@@ -1,0 +1,12 @@
+[{
+	"name": "Bob"
+	"age": "21"
+	"status": "Active"
+	"contact": "Bob@yahoo.com"
+},
+{
+	"name": "Groot"
+	"age": "12"
+	"status": "Not Active"
+	"contact": "iamgroot@iamgroot.iamgroot"
+}]
