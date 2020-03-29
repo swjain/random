@@ -26,7 +26,7 @@ public class FindKthSmallestElementInBST
 			for(int i = 0; i < n; i++)
 			{
 				if(fhead == null)
-					fhead = new Node(sc.nextInt());
+					fhead = Node.builder().value(sc.nextInt()).build();
 				else{
 					insert(fhead, sc.nextInt());
 				}
@@ -39,10 +39,10 @@ public class FindKthSmallestElementInBST
 
 	private static Node insert(Node head, int a){
 		if(head == null)
-			return new Node(a);
-		if(head.data >= a)
+			return Node.builder().value(a).build();
+		if(head.value >= a)
 			head.left=insert(head.left, a);
-		if(head.data < a)
+		if(head.value < a)
 			head.right=insert(head.right, a);
 		return head;
 	}
@@ -70,7 +70,7 @@ public class FindKthSmallestElementInBST
 			}
 			direction = ++direction % 2;
 		}
-		return next.data;
+		return next.value;
 	}
 
 	private static Node getLeftMostLeaf(Node root, LinkedList<Node> parentStack) {
@@ -84,19 +84,3 @@ public class FindKthSmallestElementInBST
 
 }
 
-class Node{
-	int data;
-	Node left, right;
-	Node(int d){
-		data=d;
-		left=right=null;
-	}
-	
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(this.data + " ");
-	    builder.append(this.left != null ? left : "EL ");
-	    builder.append(this.right != null ? right : "ER ");
-	    return builder.toString();
-	}
-}
